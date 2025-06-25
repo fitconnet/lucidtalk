@@ -9,6 +9,7 @@ from typing import Optional, List
 import random
 from collections import Counter, defaultdict
 import time
+from fastapi.middleware.cors import CORSMiddleware
 
 SECRET_KEY = "lucidtalk_secret_key"
 ALGORITHM = "HS256"
@@ -17,6 +18,14 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 app = FastAPI()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or specify your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # SQLite setup
 def get_db():
