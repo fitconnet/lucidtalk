@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^4.1.10"
+  },
+  "scripts": {
+    "dev": "echo '⚠️ frontend 폴더로 이동 후 npm run dev를 실행하세요.'"
+  }
+}
