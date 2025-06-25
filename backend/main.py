@@ -21,7 +21,10 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Or specify your frontend domain
+    allow_origins=[
+        "https://*.vercel.app",
+        "https://lucidtalk-fitconnets-projects.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
